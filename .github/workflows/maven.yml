@@ -30,6 +30,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file my-car-app/pom.xml
     - name: Run all tests
-      run: mvn test
+      run: mvn test --file my-car-app/pom.xml
 
    
