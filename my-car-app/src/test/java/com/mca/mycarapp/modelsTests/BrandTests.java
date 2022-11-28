@@ -22,7 +22,12 @@ public class BrandTests {
         assertEquals("Audi", brand.getName());
     }
 
-
+    @Test
+    @DisplayName("Test brand details Setter/Getter")
+    public void testDetails(){
+        brand.setDetails("Established in 1966");
+        assertEquals("Established in 1966", brand.getDetails());
+    }
 
 
 
