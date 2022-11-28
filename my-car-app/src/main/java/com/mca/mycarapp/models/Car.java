@@ -1,10 +1,11 @@
 package com.mca.mycarapp.models;
 
-import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Car {
-    private long id;
+    private UUID id;
     private String nickname;
     private Brand brand;
     private Model model;
@@ -14,12 +15,14 @@ public class Car {
     private String frameNumber;
     private int horsePower;
     private int seats;
-    private HashMap<String, String> details;
+
+    private List<Equipment> equipmentList;
+
 
     public Car() {
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -59,8 +62,8 @@ public class Car {
         return seats;
     }
 
-    public HashMap<String, String> getDetails() {
-        return details;
+    public List<Equipment> getEquipmentList() {
+        return equipmentList;
     }
 
     public void setNickname(String nickname) {
@@ -99,8 +102,8 @@ public class Car {
         this.seats = seats;
     }
 
-    public void setDetails(HashMap<String, String> details) {
-        this.details = details;
+    public void setEquipmentList(List<Equipment> equipmentList) {
+        this.equipmentList = equipmentList;
     }
 
     @Override

@@ -4,7 +4,6 @@ import com.mca.mycarapp.models.Brand;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BrandTests {
@@ -23,15 +22,7 @@ public class BrandTests {
         assertEquals("Audi", brand.getName());
     }
 
-    @Test
-    @DisplayName("Test brand details HashMap")
-    public void testBrandDetails(){
-        HashMap<String, String> testDetails = new HashMap<>();
-        testDetails.put("AC", "Yes");
-        testDetails.put("Fog lights" , "Yes");
-        brand.setDetails(testDetails);
-        assertEquals(testDetails , brand.getDetails());
-    }
+
 
 
 
