@@ -1,10 +1,11 @@
 package com.mca.mycarapp.models;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Model {
 
-    private long id;
+    private UUID id;
     private String name;
     private int year;
     private Brand brand;
@@ -12,7 +13,7 @@ public class Model {
     public Model() {
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 

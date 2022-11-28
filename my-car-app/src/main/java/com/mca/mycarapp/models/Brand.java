@@ -1,21 +1,20 @@
 package com.mca.mycarapp.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
+import java.util.UUID;
 
 public class Brand {
-    private long id;
+    private UUID id;
     private String name;
-    private HashMap<String, String> details;
+
+    private String details;
 
     @Autowired
     public Brand() {
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -23,16 +22,15 @@ public class Brand {
         return name;
     }
 
-    public Map<String, String> getDetails() {
+    public String getDetails() {
         return details;
     }
-
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public void setDetails(HashMap<String, String> details) {
+    public void setDetails(String details) {
         this.details = details;
     }
 
