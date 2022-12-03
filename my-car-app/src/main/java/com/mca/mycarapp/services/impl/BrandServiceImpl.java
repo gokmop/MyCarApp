@@ -6,6 +6,7 @@ import com.mca.mycarapp.services.contracts.BrandService;
 import com.mca.mycarapp.services.contracts.base.GetService;
 import com.mca.mycarapp.services.contracts.base.GetServiceBase;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
