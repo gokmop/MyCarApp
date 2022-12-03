@@ -1,13 +1,23 @@
 package com.mca.mycarapp.models;
 
+import jakarta.persistence.*;
+
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity
+@Table(name = "model")
 public class Model {
 
-    private UUID id;
+    @Id
+    @Column(name = "id")
+    private UUID id = UUID.randomUUID();
+    @Column(name = "name")
     private String name;
+    @Column(name = "year")
     private int year;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     public Model() {
