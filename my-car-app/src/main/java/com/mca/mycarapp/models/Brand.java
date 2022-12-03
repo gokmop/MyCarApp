@@ -1,16 +1,24 @@
 package com.mca.mycarapp.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity
+@Table(name = "brand")
 public class Brand {
-    private UUID id;
+    @Id
+    @Column(name = "id")
+    private UUID id = UUID.randomUUID();
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "details")
     private String details;
 
-    @Autowired
     public Brand() {
     }
 
