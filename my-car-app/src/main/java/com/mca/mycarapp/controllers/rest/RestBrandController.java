@@ -13,21 +13,21 @@ import java.util.UUID;
 @RequestMapping("/api/brands")
 @RestController
 public class RestBrandController {
-   // private final BrandService brandService;
+    private final BrandService brandService;
 
- //   @Autowired
- //   public RestBrandController(BrandService brandService){
- //       this.brandService = brandService;
- //   }
+    @Autowired
+    public RestBrandController(BrandService brandService){
+        this.brandService = brandService;
+    }
 
 
     @GetMapping
     Iterable<Brand> showAllBrands(){
-        return null;//brandService.getAll();
+        return brandService.getAll();
     }
 
     @GetMapping("{id}")
     Brand showOne(@PathVariable UUID id){
-        return null;//brandService.getOne(id);
+        return brandService.getOne(id);
     }
 }
