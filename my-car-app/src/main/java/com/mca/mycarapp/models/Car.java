@@ -1,22 +1,37 @@
 package com.mca.mycarapp.models;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
+@Entity
+@Table(name = "car")
 public class Car {
-    private UUID id;
+    @Id
+    @Column(name = "id")
+    private UUID id = UUID.randomUUID();
+    @Column(name = "name")
     private String nickname;
+    @OneToOne
+    @JoinColumn(name = "car_brand_fk")
     private Brand brand;
+    @OneToOne
+    @JoinColumn(name = "car_model_fk")
     private Model model;
+    @Column(name = "mileage")
     private int mileage;
+    @Column(name = "color")
     private String color;
+    @Column(name = "plates")
     private String plates;
+    @Column(name = "frame_number")
     private String frameNumber;
+    @Column(name = "horse_power")
     private int horsePower;
+    @Column(name = "seats")
     private int seats;
-
-    private List<Equipment> equipmentList;
 
 
     public Car() {
@@ -62,9 +77,7 @@ public class Car {
         return seats;
     }
 
-    public List<Equipment> getEquipmentList() {
-        return equipmentList;
-    }
+
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
@@ -102,9 +115,6 @@ public class Car {
         this.seats = seats;
     }
 
-    public void setEquipmentList(List<Equipment> equipmentList) {
-        this.equipmentList = equipmentList;
-    }
 
     @Override
     public boolean equals(Object o){
