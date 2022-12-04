@@ -26,7 +26,7 @@ public class RestBrandController {
         return brandService.getAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     Brand showOne(@PathVariable UUID id){
         return brandService.getOne(id);
     }
@@ -36,5 +36,22 @@ public class RestBrandController {
         Brand brand = brandMapper.fromCreateBrandDto(dto);
         brandService.create(brand);
         return brandService.getOne(brand.getId());
+  }
+
+  @PostMapping("/update/{id}")
+    Brand updateBrand(@PathVariable UUID id, @RequestBody CreateBrandDto dto){
+        Brand brand = brandService.getOne(id);
+        Brand updateFromDto = brandMapper.fromCreateBrandDto(dto);
+        brand.setName(updateFromDto.getName());
+        brand.setDetails(updateFromDto.getDetails());
+        brandService.update(brand);
+        return brand;
+  }
+
+  @DeleteMapping("/delete/{id}")
+    String deleteBrand(@PathVariable UUID id){
+        Brand brandForDelete = brandService.getOne(id);
+        brandService.delete(brandForDelete);
+        return "Brand Deleted!";
   }
 }

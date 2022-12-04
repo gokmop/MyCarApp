@@ -3,11 +3,9 @@ package com.mca.mycarapp.services.impl;
 import com.mca.mycarapp.models.Brand;
 import com.mca.mycarapp.repository.BrandRepository;
 import com.mca.mycarapp.services.contracts.BrandService;
-import com.mca.mycarapp.services.contracts.base.CreateService;
 import com.mca.mycarapp.services.contracts.base.GetService;
 import com.mca.mycarapp.services.contracts.base.GetServiceBase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +34,16 @@ public class BrandServiceImpl extends GetServiceBase implements BrandService, Ge
 
     @Override
     public void create(Brand brand) {
+        brandRepository.save(brand);
+    }
+
+    @Override
+    public void delete(Brand brand) {
+        brandRepository.delete(brand);
+    }
+
+    @Override
+    public void update(Brand brand) {
         brandRepository.save(brand);
     }
 }
