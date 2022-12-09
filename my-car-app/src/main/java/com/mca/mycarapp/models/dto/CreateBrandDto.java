@@ -8,7 +8,7 @@ public class CreateBrandDto {
     public static final String MUST_SELECT_NAME = "Brand name is required!";
 
     @NotNull
-    private UUID brandId;
+    private int brandId;
     @NotNull(message = MUST_SELECT_NAME)
     private String name;
     private String details;
@@ -16,7 +16,7 @@ public class CreateBrandDto {
     public CreateBrandDto() {
     }
 
-    public UUID getBrandId() {
+    public int getBrandId() {
         return brandId;
     }
 

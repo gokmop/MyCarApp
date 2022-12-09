@@ -1,11 +1,11 @@
-package com.mca.mycarapp.services.contracts;
+package com.mca.mycarapp.repository.contracts;
 
 import com.mca.mycarapp.models.Brand;
 
 import java.util.List;
 import java.util.UUID;
 
-public interface BrandService {
+public interface BrandRepository {
 
     void create(Brand brand);
 

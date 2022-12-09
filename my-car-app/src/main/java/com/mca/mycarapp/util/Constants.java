@@ -21,9 +21,10 @@ public final class Constants {
         public static final String HIBERNATE_USE_SQL_COMMENTS = "hibernate.use_sql_comments";
         public static final String CONTROLLERS_REST = "com.mca.mycarapp.controllers.rest";
 
+    }
 
-
-
+    public static final class ErrorMessages{
+        public static final String BRAND_NOT_FOUND = "Brand with Id %d not found!";
     }
 
 }

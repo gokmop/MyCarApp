@@ -1,10 +1,8 @@
 package com.mca.mycarapp.services.impl;
 
 import com.mca.mycarapp.models.Brand;
-import com.mca.mycarapp.repository.BrandRepository;
+import com.mca.mycarapp.repository.contracts.BrandRepository;
 import com.mca.mycarapp.services.contracts.BrandService;
-import com.mca.mycarapp.services.contracts.base.GetService;
-import com.mca.mycarapp.services.contracts.base.GetServiceBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class BrandServiceImpl extends GetServiceBase implements BrandService, GetService {
+public class BrandServiceImpl implements BrandService {
 
     private final BrandRepository brandRepository;
 
@@ -21,21 +19,15 @@ public class BrandServiceImpl extends GetServiceBase implements BrandService, Ge
         this.brandRepository = brandRepository;
     }
 
-    @Override
-    public List<Brand> getAll() {
-        return brandRepository.findAll();
-    }
-
-    @Override
-    public Brand getOne(UUID uuid) {
-      Brand brand = get(brandRepository, uuid, Brand.class);
-       return brand;
-    }
-
 
     @Override
     public void create(Brand brand) {
-        brandRepository.save(brand);
+        brandRepository.create(brand);
+    }
+
+    @Override
+    public void update(Brand brand) {
+        brandRepository.update(brand);
     }
 
     @Override
@@ -44,7 +36,19 @@ public class BrandServiceImpl extends GetServiceBase implements BrandService, Ge
     }
 
     @Override
-    public void update(Brand brand) {
-        brandRepository.save(brand);
+    public Brand getById(int id) {
+        return brandRepository.getById(id);
     }
+
+    @Override
+    public List<Brand> getAll() {
+        return brandRepository.getAll();
+    }
+
+    @Override
+    public List<Brand> filterByName(String name) {
+        return brandRepository.filterByName(name);
+    }
+
+
 }

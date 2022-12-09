@@ -1,18 +1,16 @@
 package com.mca.mycarapp.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Table(name = "brand")
 public class Brand {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private UUID id = UUID.randomUUID();
+    private int id;
     @Column(name = "name")
     private String name;
 
@@ -22,7 +20,7 @@ public class Brand {
     public Brand() {
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 

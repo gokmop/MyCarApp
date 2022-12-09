@@ -22,4 +22,11 @@ public class BrandMapper {
         brand.setDetails(dto.getDetails());
         return brand;
     }
+
+    public Brand fromUpdateBrandDto(CreateBrandDto dto){
+        Brand brand = brandService.getById(dto.getBrandId());
+        brand.setName(dto.getName());
+        brand.setDetails(dto.getDetails());
+        return brand;
+    }
 }
