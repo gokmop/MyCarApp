@@ -28,7 +28,8 @@ public class BrandServiceImpl extends GetServiceBase implements BrandService, Ge
 
     @Override
     public Brand getOne(UUID uuid) {
-        return get(brandRepository, uuid, Brand.class);
+      Brand brand = get(brandRepository, uuid, Brand.class);
+       return brand;
     }
 
 
