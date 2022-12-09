@@ -10,7 +10,6 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
-
 import java.util.Properties;
 
 import static com.mca.mycarapp.util.Constants.ConfigConstants.*;
@@ -30,7 +29,7 @@ public class HibernateConfig {
         dbPassword = env.getProperty(DB_PASSWORD);
     }
 
-    @Bean
+    @Bean(name="entityManagerFactory")
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
